@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SHL Assessment Recommender</title>
+</head>
+<body>
+  <h2>SHL Assessment Recommendation Engine</h2>
+
+  <input id="query" placeholder="Enter job description" size="60"/>
+  <button onclick="send()">Recommend</button>
+
+  <pre id="output"></pre>
+
+  <script>
+    async function send() {
+      const q = document.getElementById("query").value;
+      const res = await fetch("https://YOUR_API_URL/recommend", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: q })
+      });
+      const data = await res.json();
+      document.getElementById("output").textContent =
+        JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
