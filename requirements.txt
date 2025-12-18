@@ -3,7 +3,8 @@ uvicorn
 pandas
 numpy
 scikit-learn
-google-generativeai
 python-dotenv
+
 faiss-cpu
+sentence-transformers
 
